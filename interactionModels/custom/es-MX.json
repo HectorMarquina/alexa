@@ -1,0 +1,206 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "abre practica uno",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hola",
+            "como estás",
+            "di hola mundo",
+            "di hola",
+            "hola mundo"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "CuentoIntent",
+          "slots": [
+            {
+              "name": "nombreCuento",
+              "type": "tipoCuento"
+            }
+          ],
+          "samples": [
+            "{nombreCuento}",
+            "Cuento",
+            "Dime un cuento",
+            "Cuentame un cuento"
+          ]
+        },
+        {
+          "name": "ChistesIntent",
+          "slots": [],
+          "samples": [
+            "Chiste",
+            "Cuentame un chiste",
+            "Dime un chiste"
+          ]
+        },
+        {
+          "name": "ApodosIntent",
+          "slots": [
+            {
+              "name": "tipoApodo",
+              "type": "tipoApodo"
+            }
+          ],
+          "samples": [
+            "{tipoApodo}",
+            "Apodo",
+            "Dime un apodo"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "id": "5",
+              "name": {
+                "value": "El rey Leon"
+              }
+            },
+            {
+              "id": "4",
+              "name": {
+                "value": "Blanca nieves"
+              }
+            },
+            {
+              "id": "3",
+              "name": {
+                "value": "Pinocho"
+              }
+            },
+            {
+              "id": "2",
+              "name": {
+                "value": "La sirenita"
+              }
+            },
+            {
+              "id": "1",
+              "name": {
+                "value": "Caperucita Roja"
+              }
+            }
+          ],
+          "name": "tipoCuento"
+        },
+        {
+          "values": [
+            {
+              "id": "4",
+              "name": {
+                "value": "Morenos"
+              }
+            },
+            {
+              "id": "3",
+              "name": {
+                "value": "Güeros"
+              }
+            },
+            {
+              "id": "2",
+              "name": {
+                "value": "Flaco"
+              }
+            },
+            {
+              "id": "1",
+              "name": {
+                "value": "Gordo"
+              }
+            }
+          ],
+          "name": "tipoApodo"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "CuentoIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "nombreCuento",
+              "type": "tipoCuento",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {},
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.1415367776168.591892547741.1590862434905"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ApodosIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "tipoApodo",
+              "type": "tipoApodo",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {},
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.276234807591.1657298350419.798470330087"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Slot.Validation.1415367776168.591892547741.1590862434905",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Ese cuento no me lo sé, Solo te puedo contar el de caperucita roja, la sirenita, pinocho, blanca nieves, o el rey leon"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.276234807591.1657298350419.798470330087",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Ese tipo de apodo no me lo sé, solo tengo apodos de gordo, flaco, güero, y moreno"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "2"
+}
